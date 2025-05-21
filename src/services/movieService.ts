@@ -10,6 +10,7 @@ export default async function fetchMovies(query: string) {
     {
       params: {
         query,
+        language: "uk-UA",
       },
       headers: { Authorization: `Bearer ${TMDB_TOKEN}` },
     }

@@ -1,5 +1,6 @@
 import css from "./MovieGrid.module.css";
 import type { Movie } from "../../types/movie";
+import noimage from "/public/img/noimage.jpeg";
 
 interface MovieGridProps {
   onSelect: (movie: Movie) => void;
@@ -22,7 +23,11 @@ export default function MovieGrid({ onSelect, movies }: MovieGridProps) {
             >
               <img
                 className={css.image}
-                src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                src={
+                  poster_path
+                    ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                    : noimage
+                }
                 alt={title}
                 loading="lazy"
               />
