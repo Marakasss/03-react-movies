@@ -10,15 +10,19 @@ interface TMDBResponse {
   results: MovieBackdrop[];
 }
 
-const randomPage = Math.floor(Math.random() * 1000) + 1;
-
 export async function getRandomBackdropUrl() {
+  if (!TMDB_TOKEN) {
+    console.error("TMDB token is not set!");
+    return null;
+  }
+  const randomPage = Math.floor(Math.random() * 1000) + 1;
+
   const { data } = await axios.get<TMDBResponse>(
     "https://api.themoviedb.org/3/movie/popular",
     {
       params: {
         sort_by: "vote_average.desc",
-        "vote_count.gte": 20000,
+        "vote_count.gte": 10000,
         include_adult: false,
         page: randomPage,
       },
