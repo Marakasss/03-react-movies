@@ -20,7 +20,6 @@ export async function getRandomBackdropUrl() {
         sort_by: "vote_average.desc",
         "vote_count.gte": 20000,
         include_adult: false,
-        language: "uk-UA",
         page: randomPage,
       },
       headers: {
