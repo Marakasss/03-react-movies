@@ -15,7 +15,7 @@ export async function getRandomBackdropUrl() {
     console.error("TMDB token is not set!");
     return null;
   }
-  const randomPage = Math.floor(Math.random() * 1000) + 1;
+  const randomPage = Math.floor(Math.random() * 500) + 1;
 
   const { data } = await axios.get<TMDBResponse>(
     "https://api.themoviedb.org/3/movie/popular",
