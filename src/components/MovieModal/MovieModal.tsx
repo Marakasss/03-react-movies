@@ -1,6 +1,6 @@
 import type { Movie } from "../../types/movie";
 import css from "./MovieModal.module.css";
-import noimage from "/public/img/noimage.jpeg";
+import noimage from "/public/img/noimage.jpg";
 
 interface MovieModalProps {
   movie: Movie;

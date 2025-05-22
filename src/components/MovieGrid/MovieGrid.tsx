@@ -1,6 +1,6 @@
 import css from "./MovieGrid.module.css";
 import type { Movie } from "../../types/movie";
-import noimage from "/public/img/noimage.jpeg";
+import noimage from "/public/img/noimage.jpg";
 
 interface MovieGridProps {
   onSelect: (movie: Movie) => void;
