@@ -19,11 +19,12 @@ export default function App() {
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [isError, setIsError] = useState<boolean>(false);
   const [bgUrl, setBgUrl] = useState<string | null>(null);
-  const [isLoader, setIsLoader] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   //SEARCHING AND RENDERING MOVIES BY QUERY
   async function handleSearch(query: string) {
-    setIsLoader(true);
+    setIsError(false);
+    setIsLoading(true);
     try {
       setMovies([]);
       const data = await fetchMovies(query);
@@ -35,7 +36,7 @@ export default function App() {
       console.error(error);
       setIsError(true);
     } finally {
-      setIsLoader(false);
+      setIsLoading(false);
     }
   }
 
@@ -82,7 +83,7 @@ export default function App() {
 
       {/* ---------------------------- */}
 
-      {isLoader && <Loader />}
+      {isLoading && <Loader />}
 
       {/* ---------------------------- */}
 

@@ -10,7 +10,7 @@ interface TMDBResponse {
   results: MovieBackdrop[];
 }
 
-export async function getRandomBackdropUrl() {
+export async function getRandomBackdropUrl(): Promise<string | null> {
   if (!TMDB_TOKEN) {
     console.error("TMDB token is not set!");
     return null;

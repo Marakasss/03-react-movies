@@ -4,7 +4,9 @@ const TMDB_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 interface MoviesResponce {
   results: Movie[];
 }
-export default async function fetchMovies(query: string) {
+export default async function fetchMovies(
+  query: string
+): Promise<Movie[]> {
   const response = await axios.get<MoviesResponce>(
     "https://api.themoviedb.org/3/search/movie",
     {
